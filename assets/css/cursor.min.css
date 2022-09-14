@@ -1,0 +1,125 @@
+.cb-cursor {
+  position: fixed;
+  top: -37px;
+  left: -39px;
+  z-index: 999999;
+  contain: layout style size;
+  pointer-events: none;
+  will-change: transform;
+  /* transition: transform 0.1s, color 0.4s; */
+}
+
+.cb-cursor:before {
+  content: "";
+  display: inline-block;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-color: #eb6600;
+  transition: transform 0.4s, color 0.4s;
+}
+
+.cb-cursor.-visible .cb-cursor:before {
+  transition: all 0.2s;
+  background: #eb6600;
+  mix-blend-mode: multiply;
+  top: -20px;
+  left: -20px;
+}
+
+.cb-cursor.-opaque .cb-cursor:before {
+  mix-blend-mode: exclusion;
+  background-color: #9dffea;
+  transform: scale(1.2);
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  top: -280px;
+  left: -280px;
+
+}
+
+@supports (mix-blend-mode: exclusion) {
+  .cb-cursor.-exclusion,
+  .cb-cursor.-opaque {
+    mix-blend-mode: exclusion;
+  }
+}
+
+@supports (mix-blend-mode: exclusion) {
+  .cb-cursor.-exclusion:before,
+  .cb-cursor.-opaque:before {
+    background: #82f0ff;
+  }
+}
+
+.cb-cursor.-normal,
+.cb-cursor.-text {
+  mix-blend-mode: normal;
+}
+
+.cb-cursor.-normal:before,
+.cb-cursor.-text:before {
+  background: currentColor;
+}
+
+.cb-cursor.-inverse {
+  color: #82f0ff;
+}
+
+.cb-cursor.-visible:before {
+  -webkit-transform: scale(0.2);
+  transform: scale(0.2);
+}
+
+.cb-cursor.-visible.-active:before {
+  -webkit-transform: scale(0.23);
+  transform: scale(0.23);
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+}
+
+.cb-cursor.-pointer:before {
+  -webkit-transform: scale(0.15);
+  transform: scale(0.15);
+}
+
+.cb-cursor.-text:before {
+  opacity: 0.85;
+  -webkit-transform: scale(1.7);
+  transform: scale(1.7);
+}
+
+.cb-cursor.-text .cb-cursor-text {
+  opacity: 1;
+  -webkit-transform: scale(2);
+  transform: scale(2);
+}
+
+.cb-cursor.-text.-active:before {
+  -webkit-transform: scale(1.6);
+  transform: scale(1.6);
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+}
+
+.cb-cursor.-opaque:before {
+  -webkit-transform: scale(1.32);
+  transform: scale(1.32);
+}
+
+.cb-cursor.-opaque.-active:before {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.cb-cursor.-lg:before {
+  -webkit-transform: scale(2);
+  transform: scale(2);
+}
+
+.cb-cursor.-hidden:before {
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+/*# sourceMappingURL=cursor.css.map */
